@@ -1,6 +1,6 @@
 # Use a multi-stage build to keep the image size small
 # Start with a Gradle image for building the project
-FROM gradle:jdk11 as builder
+FROM gradle:jdk17 as builder
 
 # Copy the Gradle wrapper and configuration files separately to leverage Docker cache
 COPY --chown=gradle:gradle gradlew /home/gradle/
