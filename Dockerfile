@@ -24,6 +24,9 @@ FROM openjdk:17-jdk-slim
 # Set the deployment directory
 WORKDIR /app
 
+# 尝试创建本地sql数据库
+RUN mkdir /app/data && touch db.sqlite && mv db.sqlite /app/data
+
 # Copy only the built JAR from the builder image
 COPY --from=builder /home/gradle/build/libs/aqua-?.?.??.jar /app/
 
